@@ -1,0 +1,40 @@
+RAPPORTO TECNICO DI SICUREZZA
+Tipo: Municipal Web Portal
+Approccio: Offensive Security Mindset
+Livello di Rischio: Alto
+
+INTRODUZIONE
+L’analisi è stata condotta simulando un attaccante esterno che mira
+a ottenere accesso a dati cittadini sensibili senza permesso.
+Il focus era l’individuazione di vulnerabilità logiche e di configurazione.
+
+METODOLOGIA
+- Ricognizione passiva dei form pubblici
+- Analisi dei parametri degli URL
+- Test controllato di upload e input validation
+- Simulazione di accesso a risorse non autorizzate
+
+VULNERABILITÀ IDENTIFICATE
+
+1) Unrestricted File Upload
+I form di caricamento non validavano correttamente i file.
+Era possibile caricare file eseguibili simulando un attacco RCE.
+
+2) IDOR su documenti cittadini
+Parametri URL non controllati permettevano accesso a documenti sensibili.
+
+3) Cross-Site Scripting (XSS) Stored
+Campi pubblici accettavano payload JavaScript malevoli,
+facilitando il furto di sessione amministrativa.
+
+4) Assenza di Rate Limiting
+Login page amministrativa senza limitazioni per tentativi falliti,
+permettendo attacchi di brute force.
+
+IMPATTO
+- Compromissione della riservatezza dei cittadini
+- Possibile accesso non autorizzato a sistemi amministrativi
+
+CONCLUSIONI
+Un attaccante con conoscenze base-intermedie potrebbe sfruttare
+queste vulnerabilità per compromettere il portale e raccogliere dati sensibili.
