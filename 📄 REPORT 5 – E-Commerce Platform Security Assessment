@@ -1,0 +1,38 @@
+SECURITY ASSESSMENT TECNICO
+Tipo: WordPress / E-Commerce
+Approccio: Attacker Simulation
+Livello di Rischio: Medio
+
+INTRODUZIONE
+Il test ha simulato un attacco mirato a identificare esposizioni sensibili
+senza compromettere dati reali dei clienti.
+L’obiettivo era individuare debolezze sfruttabili da un attaccante interno o esterno.
+
+METODOLOGIA
+- Enumeration dei REST API endpoint
+- Analisi dei permessi WooCommerce
+- Ricognizione dei log e directory pubbliche
+- Fingerprinting della tecnologia e plugin
+
+VULNERABILITÀ IDENTIFICATE
+
+1) User Enumeration
+L’endpoint REST esponeva nomi utente amministrativi.
+
+2) Sensitive Log Exposure
+Directory come /wc-logs/ confermate esistenti, rischio di leak se bypass regole.
+
+3) API Privilege Check
+Endpoint WooCommerce protetti, ma confermavano la presenza del servizio e possibili vettori futuri.
+
+4) Fingerprinting
+Identificazione di WordPress, tema, cache e WAF,
+utile per fasi successive di attacco o simulazione.
+
+IMPATTO
+- Informazioni interne a disposizione di un attaccante
+- Possibili attacchi futuri basati su API
+
+CONCLUSIONI
+L’analisi mostra come un attaccante possa raccogliere informazioni critiche
+anche senza sfruttare vulnerabilità dirette.
