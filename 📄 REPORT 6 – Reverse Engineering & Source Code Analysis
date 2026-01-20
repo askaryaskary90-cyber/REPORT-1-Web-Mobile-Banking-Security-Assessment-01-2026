@@ -1,0 +1,40 @@
+RAPPORTO TECNICO
+Tipo: Reverse Engineering / Binary Analysis
+Approccio: Attacker Mindset (Ethical)
+Livello di Rischio: Critico
+
+INTRODUZIONE
+Lo scopo era simulare la fase di analisi di un binario come farebbe un
+attaccante reale, individuando flaw logici, buffer overflow e credenziali hardcoded.
+
+METODOLOGIA
+- Disassemblaggio con Ghidra / IDA Pro
+- Debug runtime con GDB
+- Analisi stringhe e dati hardcoded
+- Decompilazione di APK Android tramite JADX
+
+VULNERABILITÀ IDENTIFICATE
+
+1) Credenziali Hardcoded
+Password amministrative trovate in chiaro nel codice,
+permettendo bypass completo dell’autenticazione.
+
+2) Buffer Overflow
+Input non validato provocava corruzione di memoria,
+consentendo esecuzione di codice remoto simulata.
+
+3) Implementazione Crittografica Debole
+MD5/Base64 senza salting, rischio immediato di decrittazione password.
+
+4) Flaw Logico Licenze
+Boolean check facilmente bypassabile modificando istruzioni binarie,
+simulando attacco software cracking.
+
+IMPATTO
+- Possibile accesso completo al software
+- Compromissione di dati sensibili
+- Escalation verso altri moduli critici
+
+CONCLUSIONI
+L’analisi conferma come un attaccante possa sfruttare flaw minori
+per ottenere controllo significativo. Questo report serve a fini di security research e hardening.
