@@ -1,0 +1,36 @@
+RAPPORTO DI ANALISI DI SICUREZZA
+Tipo: Web Infrastructure & Database
+Approccio: Recon → Exploitation
+Livello di Rischio: Alto
+
+INTRODUZIONE
+L’analisi è stata eseguita partendo da una fase di ricognizione passiva,
+simulando il comportamento iniziale di un attaccante che evita rumore
+e interazioni dirette non necessarie.
+
+FASE DI RICOGNIZIONE
+Sono stati identificati endpoint e parametri non documentati
+che hanno suggerito una debole separazione tra logica applicativa e database.
+
+VULNERABILITÀ IDENTIFICATE
+
+1) Local File Inclusion (LFI)
+Un parametro di input non validato permetteva l’inclusione di file locali.
+Questo ha consentito la lettura di file di sistema e configurazioni sensibili.
+
+2) SQL Injection (Error Based)
+Un modulo di ricerca non sanitizzava correttamente l’input utente.
+L’attaccante poteva estrarre struttura del database osservando i messaggi di errore.
+
+3) Esposizione di Dati Personali
+Endpoint API accessibili senza autenticazione restituivano dati sensibili,
+violando il principio di minimo privilegio.
+
+IMPATTO
+- Violazione della privacy
+- Esposizione di informazioni accademiche e personali
+- Rischio legale e reputazionale elevato
+
+CONCLUSIONI
+Un attaccante reale potrebbe concatenare queste vulnerabilità
+per ottenere una mappatura completa del sistema prima di un attacco più distruttivo.
