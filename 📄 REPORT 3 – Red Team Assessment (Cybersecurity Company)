@@ -1,0 +1,42 @@
+RED TEAM TECHNICAL REPORT
+Tipo: External Attack Simulation
+Approccio: Real-World Attacker Mindset
+Livello di Rischio: Critico
+
+INTRODUZIONE
+L’attività ha simulato un attacco reale condotto da un threat actor esterno,
+con particolare attenzione a errori umani, configurazioni dimenticate
+e superfici di attacco trascurate.
+
+FASE INIZIALE
+L’attacco non è partito da exploit diretti, ma da:
+- Raccolta OSINT
+- Analisi DNS e subdomini
+- Ricostruzione dell’infrastruttura esposta
+
+VULNERABILITÀ IDENTIFICATE
+
+1) Subdomain Takeover
+Un sottodominio puntava a un servizio cloud non più attivo.
+Questo consentiva la completa presa di controllo del sottodominio.
+
+2) VPN Misconfiguration
+La VPN permetteva l’enumerazione degli utenti interni.
+Utilizzando informazioni pubbliche, era possibile tentare accessi mirati.
+
+3) Credenziali Esposte (OSINT)
+Chiavi API e password erano presenti in repository pubblici,
+facilitando l’accesso ai servizi interni.
+
+4) Bypass del WAF
+Il filtro applicativo non intercettava payload offuscati,
+consentendo l’esecuzione di comandi sul server web.
+
+IMPATTO
+- Compromissione dell’infrastruttura
+- Possibile supply chain attack
+- Perdita totale di fiducia verso l’azienda
+
+CONCLUSIONI
+Le vulnerabilità osservate dimostrano come un attaccante
+possa sfruttare errori minori per ottenere un impatto critico.
